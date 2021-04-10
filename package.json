@@ -11,7 +11,7 @@
 		"vscode": "^1.55.0"
 	},
 	"categories": [
-		"Other"
+		"Formatters"
 	],
 	"activationEvents": [
         "onCommand:json-base64-vscode.decodeBas64ToJson",
