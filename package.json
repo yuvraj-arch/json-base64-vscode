@@ -3,6 +3,10 @@
 	"displayName": "json-base64-vscode",
 	"description": "decode base64 to formatted json and encode json to base64",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yuvraj-arch/json-base64-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.55.0"
 	},
@@ -10,14 +14,19 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:json-base64-vscode.helloWorld"
+        "onCommand:json-base64-vscode.decodeBas64ToJson",
+		"onCommand:json-base64-vscode.encodeJsonToBase64"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "json-base64-vscode.helloWorld",
-				"title": "Hello World"
+				"command": "json-base64-vscode.decodeBas64ToJson",
+				"title": "Decode Base64 To Json"
+			},
+			{
+				"command": "json-base64-vscode.encodeJsonToBase64",
+				"title": "Encode Json To Base64"
 			}
 		]
 	},

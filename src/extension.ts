@@ -13,14 +13,20 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('json-base64-vscode.helloWorld', () => {
+	let decodeBas64ToJsonDisposable = vscode.commands.registerCommand('json-base64-vscode.decodeBas64ToJson', () => {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from json-base64-vscode!');
+		vscode.window.showInformationMessage('Hello World from decodeBas64ToJson!');
 	});
 
-	context.subscriptions.push(disposable);
+	let encodeJsonToBase64Disposable = vscode.commands.registerCommand('json-base64-vscode.encodeJsonToBase64', () => {
+		// The code you place here will be executed every time your command is executed
+
+		// Display a message box to the user
+		vscode.window.showInformationMessage('Hello World from encodeJsonToBase64!');
+	});
+	context.subscriptions.push(decodeBas64ToJsonDisposable, encodeJsonToBase64Disposable);
 }
 
 // this method is called when your extension is deactivated
