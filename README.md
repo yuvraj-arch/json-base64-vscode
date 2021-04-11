@@ -1,4 +1,4 @@
-# Json Base64 Encoder and Decoder README
+# Decoder/Decoder - Json/Base64 README
 
 This extension is used to decode base64 to formatted json and encode json to base64
 
