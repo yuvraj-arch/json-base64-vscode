@@ -1,30 +1,26 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import {
-	languages, 
-	ExtensionContext,
-	commands, 
-	window, 
-	Range,
-	TextEdit,} from 'vscode';
+import * as vscode from 'vscode';
 import * as prettier from 'prettier';
 
 
-export function activate(context: ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Etension "json-base64-vscode" is now active!');
 
-	let decodeBas64ToJsonDisposable = commands.registerCommand('json-base64-vscode.decodeBas64ToJson', async () => {
+
+	let decodeBas64ToJsonDisposable = vscode.commands.registerCommand('json-base64-vscode.decodeBas64ToJson', async () => {
 		try {
-			const editor = window.activeTextEditor;
+			
+			const editor = vscode.window.activeTextEditor;
 			if (!editor) {
-				window.showInformationMessage('Not able to get text!');
+				vscode.window.showInformationMessage('Not able to get text!');
 					return;
 			}
 			const document = editor.document;
 			const content: any = document.getText();
 			if (content === '') {
-				window.showInformationMessage('Text not available!');
+				vscode.window.showInformationMessage('Text not available!');
 					return;
 			}
 			let buff = Buffer.from(content, 'base64');
@@ -33,54 +29,61 @@ export function activate(context: ExtensionContext) {
 			semi: false, singleQuote: true,  parser: "json-stringify",}).trim();
 			
 			const lastLineId = document.lineCount - 1;
-			const range : Range = new Range(0, 0, lastLineId, document.lineAt(lastLineId).text.length);
-			const textEdit : TextEdit = TextEdit.replace(range, message);
+			const range : vscode.Range = new vscode.Range(0, 0, lastLineId, document.lineAt(lastLineId).text.length);
+			const textEdit : vscode.TextEdit = vscode.TextEdit.replace(range, message);
 
 			
 			await editor.edit((editBuilder) => {
 				editBuilder.replace(textEdit.range, textEdit.newText);
 			});
-			languages.setTextDocumentLanguage(editor.document, 'json');
+			vscode.languages.setTextDocumentLanguage(editor.document, 'json');
 			// Display a message box to the user
-			window.showInformationMessage('Successfully Decoded Base64 to Json');
+			vscode.window.showInformationMessage('Successfully Decoded Base64 to Json');
 			} catch (error) {
-				window.showErrorMessage(error.message);
+				vscode.window.showErrorMessage(error.message);
 			} finally{
 			}
 	});
 
-	let encodeJsonToBase64Disposable = commands.registerCommand('json-base64-vscode.encodeJsonToBase64', async () => {
+	let encodeJsonToBase64Disposable = vscode.commands.registerCommand('json-base64-vscode.encodeJsonToBase64', async () => {
 		try {
-			const editor = window.activeTextEditor;
+			const editor = vscode.window.activeTextEditor;
 			if (!editor) {
-				window.showInformationMessage('Not able to get text!');
+				vscode.window.showInformationMessage('Not able to get text!');
 					return;
 			}
+			vscode.ConfigurationTarget.Workspace
 			const document = editor.document;
 			const content: any = document.getText();
 			if (content === '') {
-				window.showInformationMessage('Text not available!');
+				vscode.window.showInformationMessage('Text not available!');
 					return;
 			}
 			if (isValidJson(content)){
 				let buff = Buffer.from(content, 'utf8');
 
 				const lastLineId = document.lineCount - 1;
-				const range : Range = new Range(0, 0, lastLineId, document.lineAt(lastLineId).text.length);
-				const textEdit : TextEdit = TextEdit.replace(range, buff.toString('base64'));
+				const range : vscode.Range = new vscode.Range(0, 0, lastLineId, document.lineAt(lastLineId).text.length);
+				const textEdit : vscode.TextEdit = vscode.TextEdit.replace(range, buff.toString('base64'));
 	
 				
 				await editor.edit((editBuilder) => {
 					editBuilder.replace(textEdit.range, textEdit.newText);
 				});
 
+
+				/*const wordWrap = vscode.workspace.getConfiguration('', document).get('editor.wordWrap');
+				if('off' === wordWrap) {
+					vscode.commands.executeCommand('editor.action.toggleWordWrap');
+				}*/
 				// Display a message box to the user
-				window.showInformationMessage('Successfully Encoded Base64 to Json');
+				vscode.languages.setTextDocumentLanguage(editor.document, 'plaintext');
+				vscode.window.showInformationMessage('Successfully Encoded Base64 to Json');
 			} else {
-				window.showInformationMessage('Input text not a valid json');
+				vscode.window.showInformationMessage('Input text not a valid json');
 			} 
 		} catch (error) {
-			window.showErrorMessage(error.message);
+			vscode.window.showErrorMessage(error.message);
 		} finally{
 		}
 	});
