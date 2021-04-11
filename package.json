@@ -2,7 +2,7 @@
 	"name": "json-base64-vscode",
 	"displayName": "json-base64-vscode",
 	"description": "decode base64 to formatted json and encode json to base64",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"publisher": "yuvraj",
 	"repository": {
 		"type": "git",
