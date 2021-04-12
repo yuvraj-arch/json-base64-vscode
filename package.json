@@ -1,6 +1,6 @@
 {
 	"name": "json-base64-vscode",
-	"displayName": "Decoder/Decoder - Json/Base64",
+	"displayName": "Encoder/Decoder - Json/Base64",
 	"description": "decode base64 to formatted json and encode json to base64",
 	"version": "0.1.0",
 	"publisher": "yuvraj",

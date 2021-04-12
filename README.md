@@ -1,4 +1,4 @@
-# Decoder/Decoder - Json/Base64 README
+# Encoder/Decoder - Json/Base64 README
 
 This extension is used to decode base64 to formatted json and encode json to base64
 
@@ -14,9 +14,16 @@ No issue
 
 ## Release Notes
 
-Initial release
+### 1.1.0
 
-### 0.0.1
+Add features:
+
+- Now you can choose a  Encoder/Decoder - Json/Base64 when it turns on:
+- Move cursor to move start index after Encoder and Decoder.
+- Change extension name from json-base64-vscode to Encoder/Decoder - Json/Base64.
+- While encoding remove formatted json to json object then after that decode
+
+### 0.1.0
 
 Initial release of ...
 
