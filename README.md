@@ -4,9 +4,13 @@ This extension is used to decode base64 to formatted json and encode json to bas
 
 ## Features
 
-Decode base64 to formatted json
+Use Command palattes `Shift+CMD+P` to seach keyword "Decode Base64 To Json"
 
-Endcode from json to base64
+![Decode Base64 to formatted Json](./decode-base64-to-json.gif)
+
+Use Command palattes `Shift+CMD+P` to seach keyword "Encode Json To Base64"
+
+![Encode json to Base64](./encode-json-to-base64.gif)
 
 ## Known Issues
 
@@ -32,4 +36,4 @@ Added features Decode base64 to json and encode json to base64
 ## Working with Markdown
 * Open Command palattes `Shift+CMD+P` on macOS
 * To Decode base64 to formatted json search in Command palattes  `Decode Base64 To Json`
-* To Encode json to base64 search in Command palattes  `Decode Base64 To Json`
+* To Encode json to base64 search in Command palattes  `Encode Json To Base64`
