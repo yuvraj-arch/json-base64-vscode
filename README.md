@@ -31,5 +31,5 @@ Added features Decode base64 to json and encode json to base64
 
 ## Working with Markdown
 * Open Command palattes `Shift+CMD+P` on macOS
-* To Decode base64 to formatted json search  `Decode Base64 To Json`
-* To Encode json to base64 search  `Decode Base64 To Json`
+* To Decode base64 to formatted json search in Command palattes  `Decode Base64 To Json`
+* To Encode json to base64 search Command palattes  `Decode Base64 To Json`
